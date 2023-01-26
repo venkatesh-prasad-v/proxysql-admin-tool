@@ -813,7 +813,7 @@ function add_servers_to_proxysql()
     ws_port=$(echo "$ws_address" | cut -d' ' -f2)
 
     proxysql_exec "$LINENO" \
-      "INSERT INTO mysql_servers
+      "REPLACE INTO mysql_servers
         (hostname,hostgroup_id,port,weight,max_connections,use_ssl)
       VALUES
         ('$ws_ip',$WRITER_HOSTGROUP_ID,$ws_port,1000,$MAX_CONNECTIONS,$USE_SSL_OPTION),
