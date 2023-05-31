@@ -679,6 +679,7 @@ fi
 
 echo "Removing the previous proxysql logs"
 rm -f $WORKDIR/proxysql_db/proxysql.log
+echo "Running $PROXYSQL_BASE/usr/bin/proxysql -D $WORKDIR/proxysql_db $PROXYSQL_EXTRA_OPTIONS --foreground > $WORKDIR/proxysql_db/proxysql.log 2>&1 &"
 $PROXYSQL_BASE/usr/bin/proxysql -D $WORKDIR/proxysql_db $PROXYSQL_EXTRA_OPTIONS --foreground > $WORKDIR/proxysql_db/proxysql.log 2>&1 &
 echo "....ProxySQL started. Redirecting the logs to $WORKDIR/proxysql_db/proxysql.log"
 
